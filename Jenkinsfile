@@ -29,14 +29,14 @@ pipeline {
             }
         }
 
-        // stage('sonarQube analysis') {
-        //     steps {
-        //         withSonarQubeEnv('sonarqube-9.4') { // You can override the credential to be used
-        //             sh '''
-        //                 mvn clean verify sonar:sonar -Dcheckstyle.skip
-        //             '''
-        //         }
-        //     }
-        // }
+        stage('sonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube-9.4') { // You can override the credential to be used
+                    sh '''
+                        mvn clean verify sonar:sonar -Dcheckstyle.skip
+                    '''
+                }
+            }
+        }
     }
 }
